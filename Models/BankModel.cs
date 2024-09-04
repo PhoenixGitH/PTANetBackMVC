@@ -12,13 +12,5 @@ namespace BankAPI.Models
         public string Country { get; set; }
         public string Name { get; set; }
 
-        public BankModel(string bic, string country, string name, int id)
-        {
-            this.BankID = id;
-            this.Bic = bic;
-            this.Country = country;
-            this.Name = name;
-        }
-
     }
 }
