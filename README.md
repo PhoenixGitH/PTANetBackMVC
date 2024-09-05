@@ -1,3 +1,43 @@
+## Alicunde Test
+
+## Project Description
+
+The application consumes an external API, stores the data in a database and exposes it through a RESTAPI with Swagger and Docker.
+
+## Technologies used
+
+- .NET - C#
+- SQL Server
+- MVC
+
+## Project Configuration and Execution
+
+### Prerequisites
+
+- [.NET SDK](https://dotnet.microsoft.com/download) installed on your machine.
+- [Docker](https://www.docker.com/get-started) installed and running, with a SQL Server instance configured.
+
+### Secret Management
+
+The sensitive project data is stored in an environment variable, but the possibility to use the data locally has been left implemented.
+
+In this environment variable it is necessary to modify the connection string by setting the IP corresponding to the database host.
+
+#### Downloading and running the project
+
+1. Clone this repository.
+2. Modify the Dockerfile to find the `DB_CONNECTION_STRING` environment variable and set its corresponding ip value.
+3. Have Docker Desktop running on the host machine.
+3. Have the SQL Server services running and a user and password corresponding to those of Dockerfile otherwise modify them as well.
+3. Compile and run the application using your IDE tools or the `dotnet run Docker` command to use the Docker profile created.
+
+## Techniques used
+
+- **SW Patterns:** The API uses the default Swagger view, but the MVC has been used. 
+- **Exceptions:** Repetitive `try-catch` code blocks have been used due to lack of knowledge of the MONAD pattern.
+- **Documentation:** The API is documented using Swagger.
+- **Tests:** No unit tests have been done, but when executing the code you can see how all the endpoints work and the database is updated correctly.
+
 # Prueba Alicunde
 
 ## Descripción del Proyecto
