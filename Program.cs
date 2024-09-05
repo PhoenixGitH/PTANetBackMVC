@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BankAPI.DBO;
+using BankAPI.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,4 +32,16 @@ app.MapControllers();
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bank API 1.0"));
 
+//Create the context for the dataBase
+DbContextOptions<DataBaseConnection>? options = new DbContextOptionsBuilder<DataBaseConnection>()
+            .UseSqlServer(connectionString)
+            .Options;
+
+//Consume the api and send the info.
+var bankConsumer = new BankConsumer(new DataBaseConnection(options));
+// Do this async
+await bankConsumer.StoreAllBanksInDataBase();
+
 app.Run();
+
+
