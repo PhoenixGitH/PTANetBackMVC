@@ -26,6 +26,7 @@ namespace BankAPI.Controllers
             return Ok(result);
         }
 
+        // Search by ID filter.
         // GET api/<BankController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult>  Get(int id)

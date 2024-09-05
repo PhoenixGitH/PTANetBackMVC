@@ -13,6 +13,7 @@ namespace BankAPI.Services
         private readonly ILogger<BankConsumer> _log;
         private const string apiToConsume = "https://api.opendata.esett.com/EXP06/Banks";
 
+        //Constructor base for the consumer.
         public BankConsumer(DataBaseConnection connection)
         {
             _httpClient = new HttpClient();
@@ -20,6 +21,7 @@ namespace BankAPI.Services
             _log = LoggerFactory.Create(options => {}).CreateLogger<BankConsumer>();
         }
 
+        //HTTP task that returns all the banks fetched.
         public async Task<HttpResponseMessage> StoreAllBanksInDataBase()
         {
             try
